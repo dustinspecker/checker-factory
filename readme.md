@@ -55,3 +55,6 @@ For example, a name of **string** will have users using **propTypes.string**.
 type: `function` | `string`
 
 If `validator` is a `string`, then a `typeof` check will be performed. If `validator` is a `function`, then the function will be execution. The function is passed the `prop` value and the `key` name.
+
+## License
+MIT © [Dustin Specker](https://github.com/dustinspecker)
