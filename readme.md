@@ -19,7 +19,7 @@ import checkerFactory from 'checker-factory'
 
 const numberChecker = checkerFactory('number')
 
-numberChecker.validate('age')
+numberChecker.validate('hello', 'age')
 // => TypeError: Expected age to be of type `number`, but got `string`
 
 numberChecker.validate(3, 'age')
