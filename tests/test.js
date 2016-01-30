@@ -3,7 +3,7 @@ import test from 'ava'
 import checkerFactory from '../lib'
 
 test('missing required prop should return Error', t => {
-  const required = checkerFactory('string', 'string').isRequired
+  const required = checkerFactory('string').isRequired
 
   const err = required.validate(undefined, 'name')
   t.ok(err instanceof Error)
@@ -11,13 +11,13 @@ test('missing required prop should return Error', t => {
 })
 
 test('missing non-required prop should return undefined', t => {
-  const nonRequired = checkerFactory('string', 'string')
+  const nonRequired = checkerFactory('string')
 
   t.is(nonRequired.validate(undefined), undefined)
 })
 
 test('should return TypeError when typeof validator fails', t => {
-  const typeofCheck = checkerFactory('string', 'string')
+  const typeofCheck = checkerFactory('string')
 
   const err = typeofCheck.validate(3, 'value')
   t.ok(err instanceof TypeError)
@@ -25,7 +25,7 @@ test('should return TypeError when typeof validator fails', t => {
 })
 
 test('should return value of validator function', t => {
-  const validatorFunction = checkerFactory('even', (prop, key) => {
+  const validatorFunction = checkerFactory((prop, key) => {
     if (prop % 2 === 1) {
       return Error(`Expected ${key} to be even`)
     }

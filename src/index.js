@@ -1,11 +1,10 @@
 /**
  * Creates a new CheckerFactory
- * @param {String} name - name of Checker (e.g. string, array, shape)
  * @param {String|Function} [validator] - If String, typeof is performed to match the type
  *   If Function, the function is executed. The function should return an Error if invalid
  * @return {Object} - a CheckerFactory
  */
-module.exports = (name, validator) => ({
+module.exports = validator => ({
   /**
    * Set Checker as required
    *

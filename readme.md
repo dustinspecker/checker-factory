@@ -17,20 +17,20 @@ npm install --save checker-factory
 ```javascript
 import checkerFactory from 'checker-factory'
 
-const numberChecker = checkerFactory('number', 'number')
+const numberChecker = checkerFactory('number')
 
-numberChecker.validate('hello', 'age')
+numberChecker.validate('age')
 // => TypeError: Expected age to be of type `number`, but got `string`
 
 numberChecker.validate(3, 'age')
 // => undefined
 
-const requiredString = checkerFactory('string', 'string').isRequired
+const requiredString = checkerFactory('string').isRequired
 
 requiredString.validate(undefined, 'name')
 // => Error: name is required
 
-const evenNumberChecker = checkerFactory('evenNumber', (prop, key) => {
+const evenNumberChecker = checkerFactory((prop, key) => {
   if (prop % 2 === 1) {
     return new Error(`Expected ${key} to be an even number`)
   }
