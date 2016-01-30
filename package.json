@@ -1,6 +1,6 @@
 {
   "name": "checker-factory",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Checker Factory used by Deku Prop Type Validators",
   "main": "lib/index.js",
   "scripts": {
