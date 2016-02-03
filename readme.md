@@ -38,23 +38,26 @@ const evenNumberChecker = checkerFactory((prop, key) => {
 
 evenNumberChecker.validate(3, 'id')
 // => Error: Expected id to be an even number
+
+const checkerWithName = checkerFactory('number', 'dog')
+checkerWithName.name
+// => 'dog'
 ```
 
 ## API
-### checkerFactory(name, validator)
+### checkerFactory(validator[, name])
 
 Returns a CheckerFactory with an `isRequired` getter and `validate` function.
-
-#### name
-type: `string`
-
-The name of the CheckerFactory. This name is how users will reference the checker.
-For example, a name of **string** will have users using **propTypes.string**.
 
 #### validator
 type: `function` | `string`
 
 If `validator` is a `string`, then a `typeof` check will be performed. If `validator` is a `function`, then the function will be execution. The function is passed the `prop` value and the `key` name.
+
+#### name
+type: `string`
+
+This is an optional value to retrieve a name for the checker factory.
 
 ## License
 MIT © [Dustin Specker](https://github.com/dustinspecker)

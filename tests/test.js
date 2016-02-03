@@ -35,3 +35,9 @@ test('should return value of validator function', t => {
   t.ok(err instanceof Error)
   t.is(err.message, 'Expected age to be even')
 })
+
+test('should return name when provided', t => {
+  const withName = checkerFactory(undefined, 'dog')
+
+  t.is(withName.name, 'dog')
+})
