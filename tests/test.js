@@ -6,7 +6,7 @@ test('missing required prop should return Error', t => {
   const required = checkerFactory('string').isRequired
 
   const err = required.validate(undefined, 'name')
-  t.ok(err instanceof Error)
+  t.truthy(err instanceof Error)
   t.is(err.message, 'name is required')
 })
 
@@ -20,7 +20,7 @@ test('should return TypeError when typeof validator fails', t => {
   const typeofCheck = checkerFactory('string')
 
   const err = typeofCheck.validate(3, 'value')
-  t.ok(err instanceof TypeError)
+  t.truthy(err instanceof TypeError)
   t.is(err.message, 'Expected value to be of type `string`, but got `number`')
 })
 
@@ -32,7 +32,7 @@ test('should return value of validator function', t => {
   })
 
   const err = validatorFunction.validate(1, 'age')
-  t.ok(err instanceof Error)
+  t.truthy(err instanceof Error)
   t.is(err.message, 'Expected age to be even')
 })
 
