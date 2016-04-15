@@ -21,6 +21,7 @@ module.exports = (validator, name) => ({
    */
   get isRequired() {
     this.required = true
+
     return this
   },
   /**
@@ -38,6 +39,7 @@ module.exports = (validator, name) => ({
     if (prop !== undefined) {
       if (typeof validator === 'string' && typeof prop !== validator) {
         const actualType = typeof prop
+
         return new TypeError(`Expected ${key} to be of type \`${validator}\`, but got \`${actualType}\``)
       }
 
